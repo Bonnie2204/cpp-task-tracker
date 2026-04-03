@@ -1,21 +1,40 @@
-# cpp-task-tracker
-# C++ Task Tracker
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
 
-This is a simple task tracking program built using C++.
+struct Task{
+    string title;
+    bool completed;
+};
 
-## Features
-- Add a task
-- Mark task as completed or not completed
-- Display task list
-
-## Concepts Used
-- Structs
-- Vectors
-- User input/output
-
-## How to Run
-Compile using:
-g++ task_tracker.cpp -o task
-
-Run:
-./task
+int main (){
+    vector <Task> tasks;
+    Task task;
+    cout << "Add Task:"<< endl;
+    cout <<"Enter The Title:";
+    getline(cin,task.title);
+    
+    cout << "Tick if completed(1=yes,0=no):";
+    cin >> task.completed;
+    
+    tasks.push_back(task);
+    cout << "Task List: " << endl;
+ int i = 1;
+    for(auto v = tasks.begin(); v!= tasks.end(); ++v){
+        
+        cout <<"Task :" << i << ":"  << v -> title << endl;
+        if( v-> completed){
+        cout << " Completed." << endl;
+        }
+        else{
+            cout << "Not Completed.";
+        }
+i++;
+        
+    }
+    return 0;
+}
+        
+    
+    
